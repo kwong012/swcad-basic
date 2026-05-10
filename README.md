@@ -5,6 +5,10 @@
   <img src="https://img.shields.io/badge/SolidWorks-COM-orange?style=for-the-badge" alt="SolidWorks">
 </p>
 
+<p align="center">
+  <img src="assets/banner.png" alt="swcad banner" width="100%">
+</p>
+
 <h1 align="center">swcad</h1>
 <p align="center"><em>SolidWorks COM 自动化核心库 — 通过 Python 控制 SolidWorks 进行参数化 3D 建模</em></p>
 
