@@ -1,0 +1,41 @@
+---
+description: swcad — SolidWorks COM automation library for parametric 3D modeling via Python
+globs: **/*.py
+alwaysApply: false
+---
+
+# swcad — SolidWorks COM 自动化核心库
+
+通过 Python `pywin32` 直接调用 SolidWorks COM API，实现参数化 3D 建模的自动化。
+
+## 环境要求
+
+- Windows 操作系统
+- SolidWorks（已安装并运行，或通过 COM 自动启动）
+- Python 3.8+
+- `pywin32`（`pip install pywin32`）
+- `pyyaml`（`pip install pyyaml`，仅 `SpecEngine` 需要）
+- 界面语言自适应（中文/英文基准面名称自动映射）
+
+## 模块
+
+| 模块 | 功能 |
+|------|------|
+| `SwApp` | SolidWorks 进程连接管理 |
+| `PartDoc` | 文档生命周期管理（新建、选择、保存） |
+| `Sketch` | 草图绘制（圆、线、矩形、样条曲线等 11 种） |
+| `Feature` | 特征操作（拉伸、旋转、阵列、镜像等 12 种） |
+| `RefGeometry` | 参考几何（偏移平面、参考轴） |
+| `Params` | 参数/方程管理 |
+| `SpecEngine` | YAML 驱动自动化建模 |
+| `Utils` | 单位转换（mm/inch/deg → API 单位） |
+
+## 典型使用流程
+
+1. 通过 `SwApp` 连接 SolidWorks
+2. 通过 `PartDoc` 创建或打开零件文档
+3. 使用 `Sketch` 在基准面上绘制草图轮廓
+4. 使用 `Feature` 创建特征（拉伸、切除、旋转、阵列等）
+5. 使用 `RefGeometry` 创建辅助参考几何
+6. 使用 `Params` 管理设计参数
+7. 保存并导出结果

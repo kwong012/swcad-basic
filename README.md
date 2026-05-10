@@ -62,3 +62,35 @@ feature.extrude(50)        # 拉伸 50mm
 [MIT](LICENSE)
 
 Copyright © 2025 [kwong012](https://github.com/kwong012)
+
+---
+
+## 安装到各 AI 平台
+
+### OpenClaw
+
+```bash
+git clone https://github.com/kwong012/swcad-basic.git ~/.openclaw/skills/swcad
+```
+
+### Claude Code
+
+```bash
+# 方式一：安装为 Plugin（推荐）
+claude plugin install github:kwong012/swcad-basic
+
+# 方式二：直接克隆到 skills 目录
+git clone https://github.com/kwong012/swcad-basic.git ~/.claude/skills/swcad
+```
+
+### Cursor
+
+```bash
+git clone https://github.com/kwong012/swcad-basic.git
+# 将 .cursor/rules/swcad.mdc 复制到你的项目
+cp swcad-basic/.cursor/rules/swcad.mdc 你的项目/.cursor/rules/swcad.mdc
+```
+
+### SOLO / 其他 agentskills 标准平台
+
+将 `SKILL.md` 文件放入对应平台的 skills 目录即可，平台会自动识别。
