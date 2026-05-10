@@ -1,42 +1,36 @@
 <p align="center">
+  <img src="assets/banner.png" alt="swcad banner" width="110%">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python" alt="Python">
   <img src="https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge&logo=windows" alt="Platform">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/SolidWorks-COM-orange?style=for-the-badge" alt="SolidWorks">
 </p>
 
-<p align="center">
-  <img src="assets/banner.png" alt="swcad banner" width="100%">
-</p>
 
-<h1 align="center">swcad</h1>
-<p align="center"><em>SolidWorks COM 自动化核心库 — 通过 Python 控制 SolidWorks 进行参数化 3D 建模</em></p>
+
+<h1 align="center">swcad-basic：通过Python控制SolidWorks进行参数化建模 </h1>
+
 
 ---
 
-## 简介
+## 
 
-**swcad** 是一个 Python 库，通过 `pywin32` 直接调用 SolidWorks COM API，实现参数化 3D 建模的自动化。所有 API 调用均经过 VBA 宏录制验证，确保参数准确无误。
+**swcad** 是一个包含Python)库的agent skill,.通过pywin:32直接调用SolidWorks COM API,实现参数化3D建模的自动化。下载后在任意LLM Agent下加载/swcad使用。目前API调用大部分通过VBA宏录制验证，不同设备和环境下可能出现报错或建模错误。
+
+拿ds盲人在CLI里训练的，目前还存在导入工程图后草图位置出错、有概率不能连续建模、各种剖视图识别不出的问题（悲
+
 
 ## 快速开始
 
 ```bash
 pip install pywin32 pyyaml
+git clone https://github.com/kwong012/swcad-basic.git 
 ```
 
-```python
-from swcad import create_part, Sketch, Feature
 
-part, app = create_part()
-
-sketch = Sketch(part)
-sketch.begin("front")
-sketch.circle(0, 0, 20)   # φ40 圆
-sketch.end()
-
-feature = Feature(part)
-feature.extrude(50)        # 拉伸 50mm
-```
 
 ## 模块
 
@@ -53,7 +47,8 @@ feature.extrude(50)        # 拉伸 50mm
 
 ## 环境要求
 
-- Windows + SolidWorks（已安装并运行）
+- Windows（只在win11上验证，win10不知道行不行）
+- SolidWorks (sw2024 sp0.1)，不同版本的sw api调用可能不同，建议先录制一段vba作为对比
 - Python 3.8+
 - `pywin32`、`pyyaml`
 
@@ -63,34 +58,4 @@ feature.extrude(50)        # 拉伸 50mm
 
 Copyright © 2025 [kwong012](https://github.com/kwong012)
 
----
 
-## 安装到各 AI 平台
-
-### OpenClaw
-
-```bash
-git clone https://github.com/kwong012/swcad-basic.git ~/.openclaw/skills/swcad
-```
-
-### Claude Code
-
-```bash
-# 方式一：安装为 Plugin（推荐）
-claude plugin install github:kwong012/swcad-basic
-
-# 方式二：直接克隆到 skills 目录
-git clone https://github.com/kwong012/swcad-basic.git ~/.claude/skills/swcad
-```
-
-### Cursor
-
-```bash
-git clone https://github.com/kwong012/swcad-basic.git
-# 将 .cursor/rules/swcad.mdc 复制到你的项目
-cp swcad-basic/.cursor/rules/swcad.mdc 你的项目/.cursor/rules/swcad.mdc
-```
-
-### SOLO / 其他 agentskills 标准平台
-
-将 `SKILL.md` 文件放入对应平台的 skills 目录即可，平台会自动识别。
